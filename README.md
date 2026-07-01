@@ -22,5 +22,17 @@ encrypted_text = caesar('freeCodeCamp', 3)
 
 # Output = iuhhCrghCdps
            None
-           
+
+# although the message is encrypted, the uppercase characters have been left untouched. This happens because the translation table does not include uppercase letters.
+
+def caesar(text, shift):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    shifted_alphabet = alphabet[shift:] + alphabet[:shift]
+    translation_table = str.maketrans(alphabet + alphabet.upper(), shifted_alphabet + shifted_alphabet.upper())
+    return text.translate(translation_table)
+
+encrypted_text = caesar('freeCodeCamp', 3)
+print(encrypted_text)
+
+# Output = iuhhfrghfdps
     
