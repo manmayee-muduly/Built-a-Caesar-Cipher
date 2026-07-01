@@ -47,10 +47,18 @@ def caesar(text, shift):
         return 'Shift must be an integer between 1 and 25.'
 
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+    if encrypt != True :
+        shift = -shift
+        
     shifted_alphabet = alphabet[shift:] + alphabet[:shift]
     translation_table = str.maketrans(alphabet + alphabet.upper(), shifted_alphabet + shifted_alphabet.upper())
-    return text.translate(translation_table)
-
+    encrypted_text = text.translate(translation_table)
+    return encrypted_text
 encrypted_text = caesar('freeCodeCamp', 3)
 print(encrypted_text) 
-    
+
+# If the function should encrypt the text passed to it (default behavior, encrypt=True), or if it should decrypt an encrypted message.
+ Enable the shift to take place in the opposite direction with respect to the encryption process.
+
+ 
